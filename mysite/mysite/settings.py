@@ -94,15 +94,21 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'polls'
+    'polls',
+    'fts',
 )
 
 STATIC_URL = '/static/'
 
 FIXTURES_DIR = (
-    os.path.join(BASE_DIR, "polls")
+    os.path.join(BASE_DIR, "fts")
 )
+USE_TZ = True
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')

@@ -77,3 +77,17 @@ class TestPollChoicesModel(TestCase):
         choice = Choice()
         self.assertEquals(choice.votes, 0)
 
+
+class HomePageView(TestCase):
+    def test_root_url_shows_all_polls_as_links(self):
+        poll1 = Poll(question="does tdd rock?", pub_date=timezone.now())
+        poll1.save()
+        poll2 = Poll(question="more coffe anymore?", pub_date=timezone.now())
+        poll2.save()
+
+        response = self.client.get('/')
+
+        self.assertTemplateUsed(response, "home.html")
+
+        self.assertIn(poll1.question, response.content)
+        self.assertIn(poll2.question, response.content)

@@ -213,6 +213,7 @@ up our website, sees some polls and votes on them.
         # Now, Herbert the regular user goes to the homepage of the site. He
         # sees a list of polls.
         self.browser.get(self.live_server_url)
+        import ipdb; ipdb.set_trace()
         heading = self.browser.find_element_by_tag_name('h1')
         self.assertEquals(heading.text, 'Polls')
 
